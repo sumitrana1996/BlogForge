@@ -3,10 +3,12 @@ const bodyParser = require('body-parser');
 const { v4: uuidv4 } = require('uuid');
 const openai = require('openai');
 const dotenv = require('dotenv');
+const cors = require('cors');
 dotenv.config();
 
 const app = express();
 app.use(bodyParser.json());
+app.use(cors());
 
 // Check if the OpenAI API key is set
 if (!process.env.OPENAI_API_KEY) {
